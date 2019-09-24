@@ -5,6 +5,8 @@ The usual way of creating infrastructure as code in GCP (e.g. Terraform) involve
 
 This tool simplifies the use of short-lived oauth2 tokens without maintaining a long term token. It will authenticate using gcloud sdk (with appropriate 2FA etc.), obtain an oauth2 token for the desired service account and then revoke the authenticated account from the sdk. You can then use the oauth2 token to perform infrastructure updates.
 
+Tip: make sure the principal you're trying to use has the `iam.serviceAccounts.getAccessToken` permission on the desired resource. This permission is granted by the `Service Account Token Creator` role.
+
 **Usage:**
 
 ```
